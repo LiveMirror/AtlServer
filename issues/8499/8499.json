@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "#include <atlbase.h>\n#include <atlstr.h>\n#include <atlrx.h>\n \nint _tmain(int argc, _TCHAR* argv[])\n{\n  // Assume an allocated memory block\n  char * p = (char*)::VirtualAlloc(0, 16384, MEM_COMMIT, PAGE_READWRITE);\n  // And the following memory page is inavailable\n  DWORD old;\n  ::VirtualProtect(p + 8192, 8192, PAGE_NOACCESS, &old);\n \n  // A string near the end of this block\n  char * s = p + 8192 - 8;\n  // Of zero length\n  *s = '\\0';\n  // Nonzero (garbage) data after it\n  memcpy(s + 1, \"abcdefg\", 7);\n  // The string is valid\n  printf(\"An empty string '%s'\", s);\n \n  // But CAtlRegExp crashes\n  CAtlRegExp<CAtlRECharTraitsA> rx;\n  rx.Parse(\"aaaaaabbbbcccc\");\n  CAtlREMatchContext<CAtlRECharTraitsA> ctx;\n  rx.Match(s, &ctx);\n \n  // This was seen with CString allocated by chance in the described way\n  // with standard memory manager being used\n  // So the issue may exist in many applications that use CAtlRegExp\n  return 0;\n}",
+    "LastUpdatedDate": "2013-02-14T12:57:06.4-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2008-12-12T00:21:29.827-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "AV in CAtlRegExp",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 8499
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

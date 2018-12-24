@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "198307",
+    "ThreadId": "58587",
+    "Html": "<p>&nbsp;</p>\r\n<p>Hi There !!!</p>\r\n<p>Let's find someone who could help me on this problem.</p>\r\n<p>&nbsp;</p>\r\n<p>I have created on VS2005 under Windows Vista a new Visual C++ ATL Server Web Service Project with:</p>\r\n<p>Blob Cache</p>\r\n<p>Session Services (Memory-backed session-state service)</p>\r\n<p>I compiled the project sucessfully. Then, i opened IExplorer and access de URL to generate the WSDL.</p>\r\n<p>The WSDL of the web service was generated with sucsess.</p>\r\n<p>&nbsp;</p>\r\n<p>This is my problem:</p>\r\n<p>With this simple and basic project, i changed the configuration properties to support Common Language Runtime Suport, Old Syntax (/clr:oldSyntax)</p>\r\n<p>The compilation of the project was made successfully.</p>\r\n<p>The problem was when i go to access the web service to generate via web browser the WSDL.</p>\r\n<p>I access the URL (something like: http://localhost/ATLWS1/ATLWS1.dll?Handler=GenATLWS1WSDL) on IExplorer, and the web browser hangs and no result is returned. Just a page indicating that &quot;Internet Explorer cannot display the webpage&quot;.</p>\r\n<p>&nbsp;</p>\r\n<p>There some dependency or configuration missing to support CLR ?? I tried the same scenario on Windows XP and this works fine.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-05T09:37:10.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

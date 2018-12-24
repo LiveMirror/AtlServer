@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Hi,\n\nAtlRx.h is included. We had issue with source code, which we had to re-construct last week. Check out the new release, http://www.codeplex.com/AtlServer/Release/ProjectReleases.aspx.  \n\nThere are any current plans on including core ATL parts to this project. ATL is going to continue shipping with Visual C++. It may change in future if there is a strong customer demand on shipping ATL as shared source project. \n\nThanks,\nNikola",
+    "ClosedDate": "2007-05-09T18:14:14.55-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello.\nThis release unfortunately I could not find atlrx.h\n \nWhat time do you intend to include atl features to server?\nOr did I look in some other place?\n \nThank you in advance",
+    "LastUpdatedDate": "2013-05-16T03:04:24.12-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2007-04-25T00:53:59.94-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "atlrx.h",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 306
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

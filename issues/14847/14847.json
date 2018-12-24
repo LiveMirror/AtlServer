@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Running against IIS7 / Windows Server 2008, CSoapHandler Isapi extension would not route calls into the instance of the soap handler due to a bug in atlisapi.h\n \nThe fix -- inside class CServerContext had to change implementation of the Initialize method to obtain the script path explicitly\n \nvoid Initialize(__in EXTENSION_CONTROL_BLOCK *pECB)\n{\n    ATLENSURE(pECB);\n    m_pECB = pECB;\n \n    // Initialize the translated script path\n    DWORD dwSize=0;\n    BOOL bRes = GetServerVariable(\"SCRIPT_TRANSLATED\", NULL, &dwSize);\n    char *szScriptPathTranslated = NULL;\n    ATLTRY(szScriptPathTranslated = m_strScriptPathTranslated.GetBuffer(dwSize));\n    if (szScriptPathTranslated)\n    {\n        GetServerVariable(\"SCRIPT_TRANSLATED\", szScriptPathTranslated, &dwSize);\n        szScriptPathTranslated[dwSize] = '\\0';\n        m_strScriptPathTranslated.ReleaseBuffer(dwSize);\n    }\n \n    // Old implementation:\n    //_AtlGetScriptPathTranslated(GetPathTranslated(), m_strScriptPathTranslated);\n}",
+    "LastUpdatedDate": "2013-02-14T12:57:05.41-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2010-12-08T13:15:10.817-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "CSoapHandler not wired under IIS7, Win Server 2008",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 14847
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "The above is inside atlisapi.h.",
+      "PostedDate": "2010-12-08T13:16:47.98-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2011-04-04T03:58:18.227-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:57:05.41-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Given the following wsdl... The header is not generated after using Sproxy.  This works fine with 2003 VS sproxy:\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<wsdl:definitions xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\" xmlns:tm=\"http://microsoft.com/wsdl/mime/textMatching/\" xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:mime=\"http://schemas.xmlsoap.org/wsdl/mime/\" xmlns:tns=\"http://tempuri.org/\" xmlns:s=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://schemas.xmlsoap.org/wsdl/soap12/\" xmlns:http=\"http://schemas.xmlsoap.org/wsdl/http/\" targetNamespace=\"http://tempuri.org/\" xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\">\n  <wsdl:types>\n    <s:schema elementFormDefault=\"qualified\" targetNamespace=\"http://tempuri.org/\">\n      <s:element name=\"HelloWorld\">\n        <s:complexType />\n      </s:element>\n      <s:element name=\"HelloWorldResponse\">\n        <s:complexType>\n          <s:sequence>\n            <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"HelloWorldResult\" type=\"s:string\" />\n          </s:sequence>\n        </s:complexType>\n      </s:element>\n      <s:element name=\"UserSoapHeader\" type=\"tns:userSoapHeader\" />\n      <s:complexType name=\"userSoapHeader\">\n        <s:sequence>\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"username\" type=\"s:string\" />\n          <s:element minOccurs=\"0\" maxOccurs=\"1\" name=\"password\" type=\"s:string\" />\n        </s:sequence>\n        <s:anyAttribute />\n      </s:complexType>\n    </s:schema>\n  </wsdl:types>\n  <wsdl:message name=\"HelloWorldSoapIn\">\n    <wsdl:part name=\"parameters\" element=\"tns:HelloWorld\" />\n  </wsdl:message>\n  <wsdl:message name=\"HelloWorldSoapOut\">\n    <wsdl:part name=\"parameters\" element=\"tns:HelloWorldResponse\" />\n  </wsdl:message>\n  <wsdl:message name=\"HelloWorldUserSoapHeader\">\n    <wsdl:part name=\"UserSoapHeader\" element=\"tns:UserSoapHeader\" />\n  </wsdl:message>\n  <wsdl:portType name=\"Service1Soap\">\n    <wsdl:operation name=\"HelloWorld\">\n      <wsdl:input message=\"tns:HelloWorldSoapIn\" />\n      <wsdl:output message=\"tns:HelloWorldSoapOut\" />\n    </wsdl:operation>\n  </wsdl:portType>\n  <wsdl:binding name=\"Service1Soap\" type=\"tns:Service1Soap\">\n    <soap:binding transport=\"http://schemas.xmlsoap.org/soap/http\" />\n    <wsdl:operation name=\"HelloWorld\">\n      <soap:operation soapAction=\"http://tempuri.org/HelloWorld\" style=\"document\" />\n      <wsdl:input>\n        <soap:body use=\"literal\" />\n        <soap:header message=\"tns:HelloWorldUserSoapHeader\" part=\"UserSoapHeader\" use=\"literal\" />\n      </wsdl:input>\n      <wsdl:output>\n        <soap:body use=\"literal\" />\n      </wsdl:output>\n    </wsdl:operation>\n  </wsdl:binding>\n  <wsdl:service name=\"Service1\">\n    <wsdl:port name=\"Service1Soap\" binding=\"tns:Service1Soap\">\n      <soap:address location=\"http://localhost:1109/Service1.asmx\" />\n    </wsdl:port>\n  </wsdl:service>\n</wsdl:definitions>",
+    "LastUpdatedDate": "2013-02-14T12:57:08.38-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2007-09-17T12:44:51.92-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SPROXY - Cannot Generate soap:header",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 3350
+  },
+  "FileAttachments": [
+    {
+      "FileId": 676,
+      "FileName": "Service1.xml",
+      "DownloadUrl": ".\\676"
+    }
+  ],
+  "Comments": []
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "ATLServer/SPROXY cannot generate the correct SOAP message for this relatively simple definition:\n \nSouce WSDL (attached):\n \n<wsdl:types>\n<xs:schema xmlns:tns=\"http://ws.echoarraytest.com\" targetNamespace=\"http://ws.echoarraytest.com\" elementFormDefault=\"qualified\" attributeFormDefault=\"unqualified\">\n<xs:complexType name=\"ArrayOfInt\">\n<xs:sequence>\n<xs:element name=\"item\" type=\"xs:int\" minOccurs=\"0\" maxOccurs=\"unbounded\"/>\n</xs:sequence>\n</xs:complexType>\n<xs:complexType name=\"EchoArray\">\n<xs:sequence>\n<xs:element name=\"arrayIn\" type=\"tns:ArrayOfInt\"/>\n</xs:sequence>\n</xs:complexType>\n<xs:complexType name=\"EchoArrayResponse\">\n<xs:sequence>\n<xs:element name=\"arrayOut\" type=\"tns:ArrayOfInt\"/>\n</xs:sequence>\n</xs:complexType>\n \n<xs:element name=\"echoArray\" type=\"tns:EchoArray\"/>\n<xs:element name=\"echoArrayResponse\" type=\"tns:EchoArrayResponse\"/>\n</xs:schema>\n</wsdl:types>\n \n \nThe SOAP message should look like this (the message)\n \n<?xml version=\"1.0\" ?>\n<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <S:Body>\n    <echoArray xmlns=\"http://ws.echoarraytest.com\">\n      <arrayIn>\n        <item>43</item>\n        <item>78</item>\n        <item>24</item>\n      </arrayIn>\n    </echoArray>\n  </S:Body>\n</S:Envelope>\n \nThe generated stuff from the WSDL file results in this:\n \n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"\n  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n  xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" \n  xmlns:soapenc=\"http://schemas.xmlsoap.org/soap/encoding/\">\n  <soap:Body>\n    <echoArray xmlns=\"http://ws.echoarraytest.com\">\n      <arrayIn soapenc:arrayType=\"xsd:int[2]\">\n        <int>43</int>\n        <int>23</int>\n      </arrayIn>\n    </echoArray>\n  </soap:Body>\n</soap:Envelope>",
+    "LastUpdatedDate": "2013-02-14T12:57:08.837-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2007-07-13T13:29:14.98-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SPROXY Cannot Generate Correctly Named Array Tags",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 2796
+  },
+  "FileAttachments": [
+    {
+      "FileId": 423,
+      "FileName": "EchoArrayTest.wsdl",
+      "DownloadUrl": ".\\423"
+    }
+  ],
+  "Comments": []
+}

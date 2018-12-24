@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "274933",
+    "ThreadId": "80220",
+    "Html": "<p>Does anyone know in what cases the ISAPI dll needs to be registered as a COM server (regsvr32)? I created with vs.net 2005 two projects. One just a basic web service. The default code created by the wizard does not have any com registrations.</p>\r\n<p>Then I created another project as basic as the first one but I added the default perf counters. In this case the generated code specify that the ISAPI dll should be registered.</p>\r\n<p>So when does the ISAPI dll must be registered?</p>\r\n<p>Thanks,</p>\r\n<p>G.</p>",
+    "PostedDate": "2010-01-08T12:30:46.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

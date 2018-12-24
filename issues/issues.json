@@ -1,0 +1,102 @@
+[
+  {
+    "Id": 306,
+    "Title": "atlrx.h"
+  },
+  {
+    "Id": 1852,
+    "Title": "SPROXY generated variables for SOAP headers have unpredictable names"
+  },
+  {
+    "Id": 1853,
+    "Title": "SPROXY ignores xsd:nillable and therefore fails to parse valid SOAP responses with xsi:nil=true"
+  },
+  {
+    "Id": 2796,
+    "Title": "SPROXY Cannot Generate Correctly Named Array Tags"
+  },
+  {
+    "Id": 2927,
+    "Title": "SProxy can't handle xsd:list Tag in file.wsdl"
+  },
+  {
+    "Id": 3350,
+    "Title": "SPROXY - Cannot Generate soap:header"
+  },
+  {
+    "Id": 4118,
+    "Title": "SPROXY ignores minOccurs=\"0\""
+  },
+  {
+    "Id": 4683,
+    "Title": "ATLMIME.H - GetRecipientsString()"
+  },
+  {
+    "Id": 5266,
+    "Title": "CNTLMAuthObject constructor does not initialize m_bProxy"
+  },
+  {
+    "Id": 5731,
+    "Title": "CMimeHeader::SetSenderName() doesn't Q encode non US-ASCII"
+  },
+  {
+    "Id": 6115,
+    "Title": "Missing CHttpServer"
+  },
+  {
+    "Id": 6343,
+    "Title": "Thread safety issue in ATL caches (atlcache.h)"
+  },
+  {
+    "Id": 6612,
+    "Title": "ATLHttp.inl NULL Pointer"
+  },
+  {
+    "Id": 6815,
+    "Title": "Make ATLPref work under Vista"
+  },
+  {
+    "Id": 6896,
+    "Title": "Fix to bug in GetRecipientsString in atlmime.h"
+  },
+  {
+    "Id": 6897,
+    "Title": "Fix to bug in GetRecipientsString in atlmime.h"
+  },
+  {
+    "Id": 8499,
+    "Title": "AV in CAtlRegExp"
+  },
+  {
+    "Id": 9279,
+    "Title": "Perfomance Counter Support in Vista"
+  },
+  {
+    "Id": 10641,
+    "Title": "atlperf.inl generates PreFast static analyzer warnings: C6284 objects passed, when string is required."
+  },
+  {
+    "Id": 12158,
+    "Title": "vs2010: warning LNK4254: section 'ATLP' (50000040) merged into '.rdata' (40000040) with different attributes"
+  },
+  {
+    "Id": 12923,
+    "Title": "DllMain rule violation in _g_smtp_init's constructor"
+  },
+  {
+    "Id": 14847,
+    "Title": "CSoapHandler not wired under IIS7, Win Server 2008"
+  },
+  {
+    "Id": 15897,
+    "Title": "Possible crash in CAtlHttpClientT"
+  },
+  {
+    "Id": 21830,
+    "Title": "CReadStreamOnInet"
+  },
+  {
+    "Id": 22502,
+    "Title": "Default stencil resources not HTML5"
+  }
+]

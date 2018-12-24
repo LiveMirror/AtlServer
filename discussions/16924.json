@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "54912",
+    "ThreadId": "16924",
+    "Html": "\r\nThese instructions have been tested on Vista IIS7.0 and Windows Server 2008 IIS 7.0.  It is assumed you know your way around IIS 7.0.  If not, you will have to refer to www.iis.net and MSDN.<br /><br />These two questions are answered below:<br /><br />1.\tDoes AtlServer work on IIS 7.0?<br />2.\tWhat are the minimum settings that need to be applied to get the AtlServer web service running in this configuration?<br /><br />Test Bed<br />Vista Development machine: Build environment with VS 2005 (latest SP and updated installed)<br />Vista Production Machine: New Install of Vista Enterprise Edition with all latest updates<br />On the build machine:<br />Create default AtlServer project using VS2005 (HelloWorld).  Statically link the ATL libraries.  Build a release version. <br /><br />On the target machine, Default install of IIS and include 'ISAPI Extensions' by checking that option in the 'World Wide Web Services' 'Application Development Features' section during install (or if already installed ensure that feature is checked when in 'Turn Windows Features on or off'.<br /><br />Add an Application to the Default web Site.  Note the ApplicationPath should match your project name, and Path I chose was under WWWROOT\\AtlServerTest (yours may be different)<br /><br />Copy files from the project (htm page, disco and the two DLL’s generated) to your application directory on the target machine.<br /><br />Add the script mapping to your application.  Click on the application in the InetMgr choose Handler Mappings and Add the Script Map.  The 'Request Path' will be your dll without ISAPI in the name.  The Executable will be the dll with ISAPI in the name.  Say yes to the next dialog to allow the ISAPI to exectute.<br /><br />I got a 500 error when testing and discovered the VC redistributable files were not on the target server.  I ran vcredist_x86 from my development machine and it all worked fine!<br /><br />1.\tDoes AtlServer work on IIS 7.0? Yes<br />2.\tWhat are the minimum settings that need to be applied to get the AtlServer web service running in this configuration? IIS with ISAPI Extensions configured and the MSVC Runtime installed.  Scriptmap needs to be defined for the Service DLL that maps it to the ISAPI dll.<br /><br /><br />Note on deploying the ATLServer project on the development machine:  <br />Basically, simply enable all the IIS 6.0 compatibility features in IIS through the Add Windows Components UI and run Visual Studio as Administrator (if using UAC).<br />The one rub is that it does not seem to do the scriptmap portion that maps the AtlServerTest.dll to the AtlServerTestISAPI.dll in Vista.  You will have to do that step (see above) manually.<br />",
+    "PostedDate": "2007-10-25T07:54:54.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "58270",
+    "ThreadId": "16924",
+    "Html": "\r\nDoes anyone know the steps to get Visual Studio 2005 debugging to work via F5 on Vista? I have been pulling my hair out with no luck... Thanks to anyone that can help...<br />",
+    "PostedDate": "2007-11-14T13:56:58.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "61126",
+    "ThreadId": "16924",
+    "Html": "<br /><div class=\"quote\" style=\"border: dotted .1em #aaa; border-left: none; border-right: none; font-style: italic; margin: 1em 0em 2.5em 3em;padding: .2em;\"><br />mattdavison wrote:<br />Does anyone know the steps to get Visual Studio 2005 debugging to work via F5 on Vista? I have been pulling my hair out with no luck... Thanks to anyone that can help...<br /><br /></div><br />Not sure exactly what you are asking here.  If you are debugging an ISAPI then the same steps you would use in other OSes applies.  If this is a general Debugging question, you would be better served asking this on the MSDN newsgroups (or opening a support case with Microsoft).<br />",
+    "PostedDate": "2007-12-04T06:50:05.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

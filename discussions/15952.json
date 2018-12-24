@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "51734",
+    "ThreadId": "15952",
+    "Html": "\r\nIn some instances, it would be very beneficial to load an SRF from string instead of from a file.  This would provide us the ability to easily customize the SRF.  Although you can specify conditions and loops within the SRF file, in many cases, this is does not suffice.<br /><br />ATL Server provides CStencil.Parse() but I have been unable to find a single example or code snippet on how to use this class.<br /><br />// create class instance and load SRF from string<br />CStencil stencil;<br />stencil.LoadFromString(sSRF);<br /><br />ITagReplacer* pReplacer;<br />stencil.Parse(pReplacer);<br /><br />stencil.Render(pReplacer, ???);<br /><br />I am at a loss, and some assistance  would be greatly appreciated.<br /><br />Thank you,<br /><br />Jeff Dunlap<br />",
+    "PostedDate": "2007-10-03T09:50:15.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

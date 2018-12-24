@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "There is a bug in ProcessObjectMoved where m_pNavData can be NULL.  ProcessObjectMoved can get called with pNavData == NULL from DoBasicAuthenticate() via call from ProcessStatus().  The call to m_pClient->Navigate(szUrl, &navigate_data) sets m_pNavData to NULL.  \n \nScenario:\nClient tries to do a basic authentication and gets back a 301, 302, or 303 and client has ATL_HTTP_FLAG_AUTO_REDIRECT set to true. \n \nFix:\nFix is simple.  Just check for m_pNavData being null and assign an empty string.\n \n \nFunction: ProcessObjectMoved\n \nOld:\n            CString strRedirectReqHeaders = (m_pNavData) ? m_pNavData->szExtraHeaders : L\"\";\n \nFixed:\n            CString strRedirectReqHeaders = (m_pNavData) ? m_pNavData->szExtraHeaders : L\"\";",
+    "LastUpdatedDate": "2013-02-14T12:57:07.053-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2008-07-01T13:46:26.683-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ATLHttp.inl NULL Pointer",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6612
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1640,
+      "FileName": "atlhttp.inl",
+      "DownloadUrl": ".\\1640"
+    }
+  ],
+  "Comments": []
+}

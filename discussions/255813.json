@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "605271",
+    "ThreadId": "255813",
+    "Html": "\r\n<p>does anyone managed to use sproxy with VS2010 ? There were some conversions errors.</p>\r\n",
+    "PostedDate": "2011-04-30T08:21:40.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "670886",
+    "ThreadId": "255813",
+    "Html": "<p>I had the same problem, but with a little work I was able to manually convert it to VC 2010. I was only interested in sproxy, so I didn't try to build/convert the other components. But sproxy works now. I can send you the solution if you like.</p>",
+    "PostedDate": "2011-09-12T19:00:16.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "670987",
+    "ThreadId": "255813",
+    "Html": "<div><br /> <br /> Yes. That would be great :-)<br /> You can send it to mail mail gheorghe.marinca at. <a href=\"http://gmail.com\" target=\"_blank\"> gmail.com</a>\n<div>\n<div></div>\n</div>\n</div>",
+    "PostedDate": "2011-09-12T23:55:06.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

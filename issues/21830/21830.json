@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\n\nCompletely new to this library, but just thought would flag this up to someone who is a bit more experienced with this. \n\nFile: atlsoap.h\nClass: CReadStreamOnInet\nFunction: Read\n\nThis function calls InternetReadFile.\n\nLooking a the Microsoft usage of this function at:\n\nhttps://msdn.microsoft.com/en-us/library/windows/desktop/aa385103%28v=vs.85%29.aspx\n\nIt states:\n\n\"To ensure all data is retrieved, an application must continue to call the InternetReadFile function until the function returns TRUE and the lpdwNumberOfBytesRead parameter equals zero. This is especially important if the requested data is written to the cache, because otherwise the cache will not be properly updated and the file downloaded will not be committed to the cache.\"\n\nThis is not currently happening and someone may wish to look into it, it is just being invoked once, or it maybe as designed.\n\nThank you,\n\nDene.",
+    "LastUpdatedDate": "2015-04-30T23:54:30.413-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2015-04-30T23:54:30.413-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "CReadStreamOnInet",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 21830
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

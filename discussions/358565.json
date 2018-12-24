@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "845495",
+    "ThreadId": "358565",
+    "Html": "\r\n<p>I'd like to pay attention to the issue described here:</p>\r\n<p>http://www.tech-archive.net/Archive/VC/microsoft.public.vc.atl/2005-04/msg00139.html</p>\r\n<p>Chunked responses with png images began to work right for me only after I made this fix. Thanks to Shaun.</p>\r\n<p>Probably it's worth fixing in the repository.</p>\r\n<p>-- Sergei</p>\r\n",
+    "PostedDate": "2012-06-06T05:09:53.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

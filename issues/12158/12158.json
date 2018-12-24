@@ -1,0 +1,125 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I see atlperf.h creates a section as readonly-shared. However I don't understand why is it needed. I've dumpbin'ed my dll compiled with vs2005 and it looks like it was always 40000040, just with no warning.\n If I specify /section:.rdata,rs for linker it give another warning: warning LNK4223: the SHARED (S) attribute specified for section '.rdata' is ineffective without the WRITE (W) attribute\n \nIs the \"shared\" really needed for ATLP section?",
+    "LastUpdatedDate": "2014-05-30T03:56:17.147-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2010-03-20T10:14:36.917-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "vs2010: warning LNK4254: section 'ATLP' (50000040) merged into '.rdata' (40000040) with different attributes",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 9,
+    "Id": 12158
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I get the same linker warning here.\r\nIt's not clear how to solve this problem.\r\nProbably due to the following:\r\n\r\n#if !defined(_M_IA64)\r\n#pragma comment(linker, \"/merge:ATL=.rdata\")\r\n#endif\r\n\r\nbeing defined in the standard ATL files, but NOT in the ATLServer files.\r\n\r\nI tried adding it around i.e. #include <atlhttp.h>, but it doesn't help.\r\n\r\nAny help in solving this problem is greatly appreciated.\r\n",
+      "PostedDate": "2010-05-04T04:25:15.09-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-05-04T16:12:59.823-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am having the same problem. Since this is a warning and not an error is it Ok to ignore it?",
+      "PostedDate": "2010-06-14T17:13:10.563-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I'm getting a very similar warning but with the section 'ATLS'. Any help in solving this problem would be greatly appreciated.",
+      "PostedDate": "2010-07-01T19:57:25.587-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-07-01T19:57:37.677-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-07-03T22:14:55.913-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-21T13:05:17.503-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The same issue here. Lots of warnings when linking. This could be a problem with VC ATL includes. In VS 2008 atlbase.h the part of the file with pragmas is compiled conditionally.\r\n$if defined(_M_IA64) || defined(_M_IX86) ...\r\nIn VS 2010 the same declaration in atlbase.h is not conditional so it is included in 64 bit compilation. \r\nFor now I prefer to ignore these warnings. Maybe in the next VS 2010 service pack it will be fixed.  ",
+      "PostedDate": "2010-10-18T16:24:39.08-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "It looks to me there is conflict between read-only and shared attributes of the declared sections and merging them with .rdata.\r\n\r\nI have asked related question here http://social.msdn.microsoft.com/Forums/en-US/vcmfcatl/thread/4763bc2d-0e86-45e9-bfe4-ddaa735e5ad5",
+      "PostedDate": "2010-12-01T07:54:28.69-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-12-22T06:37:06.623-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-12-30T12:40:34.353-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2011-02-22T10:59:07.843-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Still seeing this with SP1 for VS2010 applied.",
+      "PostedDate": "2011-08-19T09:25:59.007-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have a similar problem with \"ATLS\" section and VC2010.\r\n\r\nBased on the comments posted by vvdb I discovered that this error is caused because the .rdata in VC2010 does not accept the attribute shared required by ATLS (dumpbin): \r\n\r\nSECTION HEADER #3\r\n  .rdata name\r\n   2651D virtual size\r\n   FC000 virtual address (100FC000 to 1012251C)\r\n   26600 size of raw data\r\n   AA000 file pointer to raw data (000AA000 to 000D05FF)\r\n       0 file pointer to relocation table\r\n       0 file pointer to line numbers\r\n       0 number of relocations\r\n       0 number of line numbers\r\n40000040 flags\r\n         Initialized Data\r\n         Read Only\r\n\r\nWhile the ATLS defines the attribute shared:\r\n\t\t \r\nSECTION HEADER #6\r\n    ATLS name\r\n     208 virtual size\r\n  12B000 virtual address (1012B000 to 1012B207)\r\n     400 size of raw data\r\n   D3E00 file pointer to raw data (000D3E00 to 000D41FF)\r\n       0 file pointer to relocation table\r\n       0 file pointer to line numbers\r\n       0 number of relocations\r\n       0 number of line numbers\r\n50000040 flags\r\n         Initialized Data\r\n         Shared\r\n         Read Only\r\n\r\nIn order to solve this, I modified the header \"atlisapi.h\" to remove the merge if _MSC_VER is greater or equal to 1600 (VC2010). This fixed the problem and appears to be working with no major problems except for the existence of an extra segment.\r\n\r\nThe modification is as follows:\r\n\r\n#if !defined(_M_IA64)\r\n\t#if _MSC_VER < 1600 \r\n\t\t#pragma comment(linker, \"/merge:ATLS=.rdata\")\r\n\t#endif\r\n#endif\r\n\r\nIt is possible that the same approach will solve the error detected with the ATL section as well because the problem appears to be the same. \r\n\r\nMore details about the sections can be found in http://msdn.microsoft.com/en-us/library/sf9b18xk.aspx\r\n",
+      "PostedDate": "2011-11-07T08:31:01.95-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Just Ignore it , nobody fix this! \r\n\r\nproperty: linker: commandline--> Ignore:4254",
+      "PostedDate": "2012-05-24T03:02:52.803-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:57:05.88-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I think the solution suggested by research_opencs is in the right direction. However, there is room to improve. If we look immediately above the merge directive we see the real problem:\n// definitions of data segments and _HANDLER_ENTRY delimiters\n#pragma section(\"ATLS$A\", read, shared)\n#pragma section(\"ATLS$Z\", read, shared)\n#pragma section(\"ATLS$C\", read, shared)\r\n\r\nHere we see ATLS declared as read and shared. This is then merged into rdata which is only read and we see the warning. Now, if we run of win32 (either 32 or 64 bits) there is no meaning for the shared attribute. Reading the documentation from here http://msdn.microsoft.com/en-us/library/50bewfwa.aspx we see that shared means: “Shares the section among all processes that load the image.”. At least under 32 this is impossible due to memory protection between processes. We will have 1 copy of this section for each process loading this section.\nIndeed, if one looks into the atlbase.h what comes with VS 2010 she will see the same construct, declared as follows:\n#pragma section(\"ATL$__a\", read)\n#pragma section(\"ATL$__z\", read)\n#pragma section(\"ATL$__m\", read)\r\n\r\nWe see here the, at a more recent date someone from Microsoft fixed this problem by removing the shared attribute. We can guess that this happened sometime between VS 2005 and VS 2010.\nInstead of conditioning the merge, I would suggest either removing the shared at all (it works for Microsoft) or conditioning the section declaration as follows:\r\n\r\n#if _MSC_VER < 1600\n#pragma section(\"ATLS$A\", read, shared)\n#pragma section(\"ATLS$Z\", read, shared)\n#pragma section(\"ATLS$C\", read, shared)\n#else\n#pragma section(\"ATLS$A\", read)\n#pragma section(\"ATLS$Z\", read)\n#pragma section(\"ATLS$C\", read)\n#endif\r\n\r\nFor my immediate purposes the solution above is an overkill (I use VS2010) and I just deleted the shared attribute but for this code repository I would say this is the correct answer.\r\n\r\nIn closing, I think the “solution” from AlanChen was the best: just ignore it. The section will be merged and there is no side effect that I can imagine (no meaningful shared attribute on win32)\n",
+      "PostedDate": "2014-05-30T03:56:17.147-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "92419",
+    "ThreadId": "27699",
+    "Html": "Hello,<br>\r\n<br>\r\nCan you please tell me why is atrl.rx missing from VS2008 ? <br>\r\nWhat were the reasons not to include it ?<br>\r\n<br>\r\nThank you \r\n",
+    "PostedDate": "2008-05-14T05:38:28.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "134422",
+    "ThreadId": "27699",
+    "Html": "Just download source code from this project(ATL Server lib) and you will have ATLRX.H.\r\n",
+    "PostedDate": "2008-11-22T01:14:52.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

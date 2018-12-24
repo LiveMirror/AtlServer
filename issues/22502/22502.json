@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The default stencil resource files are not \n\nAffected files:\n\n* include\\res\\dllmgr.srf\n* include\\res\\stencilmgr.srf\n* include\\res\\threadmgr.srf\n\nAmong the errors are:\n\n* missing DOCTYPE\n* missing <head> and <title> tag\n* attributes _bgcolor_, _align_ not allowed\n* border attribute should be implemented in CSS \n* id vs. name attribute in forms\n* ...",
+    "LastUpdatedDate": "2017-03-12T11:02:16.633-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2017-03-12T11:02:16.633-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Default stencil resources not HTML5",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 22502
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2007-04-25T14:49:32.66-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The problem involves passing null or unspecified xsd:dateTime values between ATL and a C# web service. Specifically, because sproxy maps xsd:dateTime to BSTR, there's a reference/value semantic mismatch between C# and C++. Attempting to address this by using 'DateTime?' (aka Nullable<DateTime>) in C#, reveals that sproxy doesn't support xsd:nillable.\nTake for example this simplified version of an API:\n// describes a machine tracked by our system\nclass MachineInfo\n{\n    string name;\n    DateTime added; // read-only; ignored in AddMachine and UpdateMachine\n}\n// indicates which MachineInfo fields are specified (in an update) or requested (in a query)\nclass MachineValid\n{\n    bool nameValid;\n    bool addedValid;\n}\nvoid AddMachine(MachineInfo machine);\nvoid UpdateMachine(MachineInfo machine, MachineValid valid);\nMachineInfo[] EnumerateMachines(MachineValid valid);\nsproxy generates this definition for MachineInfo:\nstruct MachineInfo\n{\n    BSTR name;\n    BSTR added;\n}\nIf I call AddMachine() with a MachineInfo object where added == null, the SOAP request contains:\n<added xsi:nil=\"true\"/>\nwhich causes the C# web service to fail the request with a deserialization error, since DateTime is a value type and cannot be null. (The actual error is that an empty string isn't a valid DateTime value.)\nMaking a similar call from a C# client, where 'added' is automatically initialized rather than null, the SOAP request contains:\n<added>0001-01-01T00:00:00</added>\nwhich of course works.\nSince structures may contain several optional DateTime values, requiring explicit initialization in C++ (e.g. SysAllocString(L\"0001-01-01T00:00:00\")) is extremely undesirable, especially since it makes the C++ clients more brittle. (Not to mention the fact that it would be nice to easily distinguish an unspecified date.) Therefore I changed the definition of MachineInfo:\nclass MachineInfo\n{\n    string name;\n    [XmlElementAttribute(IsNullable = true)]\n    DateTime? added;\n}\nThis solves the reference/value semantic mismatch, causes the C# web service to support requests with '<added xsi:nil=\"true\"/>', and causes C# clients to generate identical requests to sproxy. Everything seemed perfect until I called EnumerateMachines() with addedValid == false, which causes EnumerateMachines() to return a response with '<added xsi:nil=\"true\"/>', which causes ISAXXMLParser::parse (called from ATL::CSoapRootHandler::BeginParse) to return E_FAIL.\nI looked more closely at the generated WSDL and at sproxy, and noticed that although the definition for added contains nillable=\"true\",\n<s:element minOccurs=\"1\" maxOccurs=\"1\" name=\"added\" nillable=\"true\" type=\"s:dateTime\" />\nthe sproxy generated field definitions only include SOAPFLAG_NULLABLE for the string fields (regardless of whether nillable is set). I verified this by looking at the sproxy source. sproxy.srf emits \" | SOAPFLAG_NULLABLE\" if IsFieldNullable is true. IsFieldNullable calls CCppCodeGenerator::OnIsFieldNullable(), which only looks at the type:\nHTTP_CODE CCppCodeGenerator::OnIsFieldNullable()\n{\n if (GetCurrentStructField()->GetXSDType() == XSDTYPE_STRING) ||\n     (GetCurrentStructField()->GetXSDType() == XSDTYPE_BASE64BINARY) ||\n     (GetCurrentStructField()->GetXSDType() == XSDTYPE_HEXBINARY) ||\n     (OnIsFieldDynamicArray() == HTTP_SUCCESS))\n {\n  return HTTP_SUCCESS;\n }\n return HTTP_S_FALSE;\n}\nIn fact, CElement::GetNullable(), which returns the value of xsd:nillable from the WSDL, is not referenced anywhere in sproxy. Even if the logic to make all strings and dynamic arrays nullable remains, it seems correct and safe to also consult the nillable attribute.",
+    "LastUpdatedDate": "2013-05-16T03:04:23.517-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2007-04-25T14:49:31.443-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SPROXY ignores xsd:nillable and therefore fails to parse valid SOAP responses with xsi:nil=true",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 1853
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

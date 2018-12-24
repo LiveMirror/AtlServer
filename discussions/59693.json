@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "202120",
+    "ThreadId": "59693",
+    "Html": "<p>Hi There!</p>\r\n<p>I created a ATL Server Web Service With Visual Studio 2005 Wizard and chanded the project settings to support CLR:oldSyntax.</p>\r\n<p>Generating WSDL Web Service and consuming it, works fine on XP with IIS 5.1.</p>\r\n<p>On Vista with IIS 7, only works fine when i compile the project without CLR option. With the CLR, the WSDL isn't generated.&nbsp;</p>\r\n<p>I need this option on, because i use managed code.</p>\r\n<p>On vista i have installed all the requisites needed to ISAPI Extensions. I have checked all the options needed, like i have seen on some forum post's about IIS7 and ISAPI.</p>\r\n<p>This is a bug on vista ? there's some missing dll, setting or other thing ?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-06-16T10:44:35.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

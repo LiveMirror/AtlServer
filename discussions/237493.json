@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "532450",
+    "ThreadId": "237493",
+    "Html": "\r\n<p>Hello</p>\r\n<p>In VC 8 I use the above function, passing a CString (a rather longish one, with some embedded formatting characters)&nbsp;as the 1st parameter, and it lives with it.</p>\r\n<p>In VC 7.0 the same code throws an exception (It does so even if I copy the string to a&nbsp;NULL-terminated character array).</p>\r\n<p>What gives?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2010-12-07T11:46:05.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

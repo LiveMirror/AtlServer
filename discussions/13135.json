@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "42907",
+    "ThreadId": "13135",
+    "Html": "\r\nHi, <br />I've been a user of ATL Server for quite some time. And I have adapted the \"SOAPing without a Web Server\" By Bogdan CRIVAT published on the code project site to support HTTP.sys API.<br />So I'm wondering since this an \"Open Source\" project, and Bogdan was one of the creators of ATL Server, why not reuse that code and incorporate it into ATL Server?<br /><br />Also another idea that comes to mind, is maybe to think of an integration layer with gSOAP. Since this is a library that already supports some of the WS-* standards?<br /><br />Regards<br />Cláudio Albuquerque<br />",
+    "PostedDate": "2007-07-29T10:48:21.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "45919",
+    "ThreadId": "13135",
+    "Html": "\r\nHi Cláudio,<br /><br />It looks like a good idea. If you want to join the project and contribute, you can do it following the instructions at <a href=\"http://www.codeplex.com/AtlServer/Wiki/View.aspx?title=JoinProject&amp;referringTitle=Home\" class=\"externalLink\">http://www.codeplex.com/AtlServer/Wiki/View.aspx?title=JoinProject&amp;referringTitle=Home<span class=\"externalLinkIcon\" style=\"font-family:Consolas, Courier New, Courier, Monospace;\"></span></a><br /><br />Thanks!<br />",
+    "PostedDate": "2007-08-21T10:19:17.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "48447",
+    "ThreadId": "13135",
+    "Html": "\r\nHi All,<br /><br />I think that Cláudio's idea to integrate ATLS w/ gSOAP is a great one.  That library is actively developed and its integration would propel ATLS forward.  I've submitted patched to gSOAP in the past, so I'm acquainted with the code.  If help is needed, I can provide a bit.<br /><br />--<br /><br />Regards,<br /><br />Travis Spencer<br />",
+    "PostedDate": "2007-09-09T08:00:09.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

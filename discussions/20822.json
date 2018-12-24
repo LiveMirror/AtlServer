@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "69273",
+    "ThreadId": "20822",
+    "Html": "\r\nI've builded VCDeploy and tried to run it. In should be ran in the command line:<br />VCDeploy.exe <a href=\"http://www.codeplex.com/AtlServer/Wiki/View.aspx?title=options\">options</a> settings_file.<br /><br />What is \"settings_file\". I guess this is some XML file.<br />Where can I find it or its template?<br />",
+    "PostedDate": "2008-01-22T05:09:16.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

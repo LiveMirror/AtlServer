@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If a binary file is being downloaded using chunked Transfer-Encoding, and the binary file contains a null character, this line in ReadChunkedBody will only append some of the result_buffer to m_current, because Append with no length uses strlen, which will stop at the null. Later attempts to use m_current can cause access violations because GetBodyLength() still returns the actual download size.\n\tif (!m_current.Append((LPCSTR)result_buffer))\n\t\treturn false;\n \nChanging it to this, fixes the problem:\n\tif ( !m_current.Append((LPCSTR)result_buffer, result_buffer.GetLength()) )\n\t\treturn false;\n \n \nNot a bug, but I also added this code in ReadChunkedBody just after a successful Read so that callback clients will get feedback during a chunked download.\n                if (m_pNavData->pfnReadStatusCallback)\n                {\n\t\t\t\t    bool bRet = m_pNavData->pfnReadStatusCallback(dwReadBuffSize, m_pNavData->m_lParamRead);\n\t\t\t        if (!bRet)\n\t\t\t\t        return bRet;\n                }",
+    "LastUpdatedDate": "2013-02-14T12:57:04.82-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2011-05-20T11:34:09.623-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Possible crash in CAtlHttpClientT",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 15897
+  },
+  "FileAttachments": [
+    {
+      "FileId": 5674,
+      "FileName": "atlhttp.inl",
+      "DownloadUrl": ".\\5674"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Apparently this was reported as far back as 2002 and still hasn't been fixed:\r\nhttp://groups.google.com/group/microsoft.public.vc.atl/msg/4e2e29008d33ca17",
+      "PostedDate": "2011-05-20T11:57:57.54-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:57:04.82-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In <atlhttp.inl>, there are two constructors for CNTLMAuthObject.  The default constructor sets m_bProxy to false, but the constructor that accepts a (possibly NULL) IAuthInfo interface pointer does not initialize m_bProxy.  It's set in Authenticate(), but seeing this as `true` until that time is confusing.\n \n/////////////////////////////////////////////////////////////////////////////////\n//\n// CNTLMAuthObject\n// NTLM Security Authorization functions\n//\n/////////////////////////////////////////////////////////////////////////////////\ninline CNTLMAuthObject::CNTLMAuthObject() throw() :\n    m_pSocket(NULL),\n    m_nMaxTokenSize(0),\n    m_pAuthInfo(NULL),\n    m_bProxy(false)\n{\n    SecInvalidateHandle(&m_hCredentials)\n}\n \ninline CNTLMAuthObject::CNTLMAuthObject(IAuthInfo *pAuthInfo) throw() :\n    m_pSocket(NULL),\n    m_nMaxTokenSize(0),\n    m_pAuthInfo(pAuthInfo)         // <<---- needs  ,m_bProxy(false)\n{\n    SecInvalidateHandle(&m_hCredentials)\n}",
+    "LastUpdatedDate": "2013-02-14T12:57:07.73-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2008-01-29T08:42:32.707-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "CNTLMAuthObject constructor does not initialize m_bProxy",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5266
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

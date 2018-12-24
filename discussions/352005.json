@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "822760",
+    "ThreadId": "352005",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>I would like to download ATL server sample apps, but I could not find the download link on codeplex.</p>\r\n<p>Could you please share download link? I'm especially interested in HttpClient sample. The task is the following:</p>\r\n<p>1. Download image (jpg, png, etc)&nbsp;using CAtlHttpClient</p>\r\n<p>2. Create instance of CImage based on image byte array</p>\r\n<p>3. Display it in MFC app</p>\r\n<p>Thanks,</p>\r\n<p>Andrew</p>\r\n",
+    "PostedDate": "2012-04-12T00:08:34.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Version: ATL Server Source and Headers 9.0.70425 Alpha\n \nProblem:\nNew code added to used function AtlMimeMakeRecipientsString() means that GetRecipientsString() will always return FALSE.\nThe problem is that the 'dwLen' parameter will always be zero, and buffer length validation in AtlMimeMakeRecipientsString() will fail the call.\n \nFix:\nIn GetRecipientsString() the three instances of this line:\n\t\t\tdwLen = *pdwLen - dwTotalLen;\nshould be changed to this:\n\t\t\tdwLen = dwMaxLen - dwTotalLen;\nThis will correctly maintain the remaining buffer length in dwLen.",
+    "LastUpdatedDate": "2013-02-14T12:57:07.903-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2007-12-04T16:29:22.157-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ATLMIME.H - GetRecipientsString()",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 4683
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "You can simply comment line 531 of the ATLMIME.H like this:\r\n\r\n530:\t\tDWORD dwMaxLen = *pdwLen;\r\n531:\t\t//*pdwLen = 0;\r\n\r\nThis is a serious error and it should be corrected in the next release.",
+      "PostedDate": "2009-02-20T04:28:28.09-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-01-14T03:21:26.37-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:57:07.903-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "Id": "0",
+    "Name": "9.0.70302 Alpha",
+    "DevelopmentStatus": "None",
+    "Description": "This is the first release of ATL Server headers and sources for ATL Server tools as a shared source. This is pretty much same headers as in VS2005 SP1 and VS Orcas January CTP. \r\nThis release is tartegging VC++ customers who would like to use ATL Server with Orcas March CTP.\r\n\r\nTo download Orcas CTP, please visit http://www.microsoft.com/downloads/details.aspx?familyid=281fcb3d-5e79-4126-b4c0-8db6332de26e&displaylang=en\r\n",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "0001-01-01T00:00:00",
+    "Files": [
+      {
+        "Id": "278babbb-1cda-48ac-8d0a-f8aeb1df9525",
+        "FileName": "ATL_Server_Source_9_0_70302_Alpha.zip",
+        "Url": "./0/278babbb-1cda-48ac-8d0a-f8aeb1df9525",
+        "Type": "Source Code",
+        "UploadDate": "2007-03-01T13:38:01.947-08:00"
+      }
+    ]
+  },
+  {
+    "Id": "1",
+    "Name": "9.0.70425 Alpha",
+    "DevelopmentStatus": "None",
+    "Description": "Re-release of ATL Server headers and sources for ATL Server tools due to some file lost cause by server issues. This is pretty much same headers as in VS2005 SP1 and VS Orcas January CTP, plus two fixes for Issue#1852 (http://www.codeplex.com/AtlServer/WorkItem/View.aspx?WorkItemId=1852) and Issue#1853 (http://www.codeplex.com/AtlServer/WorkItem/View.aspx?WorkItemId=1853).\r\nTo download Orcas CTP, please visit http://www.microsoft.com/downloads/details.aspx?familyid=281fcb3d-5e79-4126-b4c0-8db6332de26e&displaylang=en\r\n\r\n",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2007-04-25T17:03:59.027-07:00",
+    "Files": [
+      {
+        "Id": "f1b60d7f-c256-4b14-995b-b4a3f050adc9",
+        "FileName": "ATL_Server_Source_and_Headers_9_0_70425_Alpha.zip",
+        "Url": "./1/f1b60d7f-c256-4b14-995b-b4a3f050adc9",
+        "Type": "Source Code",
+        "UploadDate": "2007-04-25T16:50:59.643-07:00"
+      }
+    ]
+  }
+]

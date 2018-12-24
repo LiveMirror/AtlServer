@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1498222",
+    "ThreadId": "663866",
+    "Html": "Send Request is failing in BuildRequest in atlhttp.h if(mp_NavData-&gt;szExtraHeaders) strRequest += szExtraHeaders\r<br />\n<br />\nlooks like the memory is corrupted. Any information regarding this.<br />\n",
+    "PostedDate": "2017-10-10T09:05:21.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

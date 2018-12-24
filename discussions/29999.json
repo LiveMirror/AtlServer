@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "99960",
+    "ThreadId": "29999",
+    "Html": "Hello,<br>\r\nI am newbie in ATL Server and want to learn this library.<br>\r\nSo, I've read about it in &quot;Visual C++ .NET Bible&quot; by Tom Archer and Andrew Whitechapel and was confused when heard Microsoft won't support it in future. I've downloaded the Source Code of the project.<br>\r\nHow can I use it with VC 2008? I mean there were a couple of Masters creating all that .srf, .h, .cpp template files and deploying .dlls.<br>\r\nSo, in what way can I do it? If the only possible way is manual, can you post an example?<br>\r\nThank you for help.<br>\r\n",
+    "PostedDate": "2008-06-20T06:32:55.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

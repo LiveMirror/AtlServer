@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Microsoft eliminated the MFC ISAPI class CHttpServer and related headers/libs from Visual Studio 2008. \n \nPages like this one seem to imply they can be found in your project: http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2470867&SiteID=1&pageid=0\n \nHowever, I don't see CHttpServer in the AtlServer project anywhere? Can someone elaborate on this issue? Where can we get CHttpServer support in VS 2008, and why was it removed without warning by Microsoft?",
+    "LastUpdatedDate": "2013-02-14T12:57:07.383-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2008-05-05T19:44:23.573-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Missing CHttpServer",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6115
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

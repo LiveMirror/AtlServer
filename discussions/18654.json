@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "61049",
+    "ThreadId": "18654",
+    "Html": "\r\nRumor has it that the ISAPI filter libraries (CHttpServer and friends) came to Codeplex along with ATL Server.  They certainly aren't included in VS 2008!<br /><br />I'm not having any luck finding it here though.  Any suggestions?<br />",
+    "PostedDate": "2007-12-03T20:40:55.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "61123",
+    "ThreadId": "18654",
+    "Html": "\r\nNo CHttpServer is not part of AtlServer.  This class is a simple Wrapper around ISAPI Extension Development.  Then concept of Context and the functions exposed are all thin wrappers around the Win32 API's.  You can simply code directly as an ISAPI Extension.  The platform SDK and MSDN have serveral samples of ISAPI extensions.  If you install the Platform SDK in it's default location you will find a bunch of ISAPI Extension examples in: C:\\Program Files\\Microsoft Platform SDK for Windows Server 2003 R2\\Samples\\Web\\iis\\extensions<br />",
+    "PostedDate": "2007-12-04T06:43:16.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "61290",
+    "ThreadId": "18654",
+    "Html": "\r\nOK, thanks.  It's off to the Platform SDK then.<br /><br />I was hoping for easy with these that came with the Dev Studios:<br />C:\\Program Files\\Microsoft SDKs\\Windows\\v5.0<br />C:\\Program Files\\Microsoft SDKs\\Windows\\v6.0A<br /><br />afxisapi.h was in VS 2005 (and earlier) and then removed from VS 2008, why?  I've got a working combination filter &amp; extension and porting to VS 2008 has become a detective game.  CSI:Dev Studio it is.<br />",
+    "PostedDate": "2007-12-05T04:54:51.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "61301",
+    "ThreadId": "18654",
+    "Html": "\r\nI hear ya 'Frito'<br /><br />I want through the same detective work.  I have tried to simply bring those files over into VS 2008 and build and have not had much success yet (still messing with it in my \"spare\" time).  Of course a real simple solution would be to keep the VS 2005 compiler and linker around for that legacy code and do new development with the ISAPI API's.  I have been playing with IIS 7.  Developing for IIS 7 is pretty amazing with the integrated pipeline!  It would be nice if I never had to play with ISAPI's again and could just use IIS 7 ;-)<br />",
+    "PostedDate": "2007-12-05T06:51:04.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "61389",
+    "ThreadId": "18654",
+    "Html": "\r\nMy ISAPI thing is part of a larger system.  Surprisingly enough, one of the largest (and simplest) changes in the port was brought about by atlcom.h adding const to the return value of GetPropertyMap().  Go figure.<br /><br />I haven't gotten around to IIS 7 yet.<br />",
+    "PostedDate": "2007-12-05T16:45:52.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

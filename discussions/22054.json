@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "73549",
+    "ThreadId": "22054",
+    "Html": "\r\nI have a SOAP Service with nearly 100 SOAP methods, implemented with ATL Server in VS2005. In trying to port this to VS2008, which does not support attributes, I found the discussion on this site at <a href=\"http://www.codeplex.com/AtlServer/Thread/View.aspx?ThreadId=12010\" class=\"externalLink\">http://www.codeplex.com/AtlServer/Thread/View.aspx?ThreadId=12010<span class=\"externalLinkIcon\" style=\"font-family:Consolas, Courier New, Courier, Monospace;\"></span></a>.  After following the instructions there to use the /Fx switch to inject the code that the attributes would inject, I end up with nearly 13,000 lines of injected, unmaintainable spaghetti code. <br /><br />Surely this is not the way to write SOAP Services with ATL Server in VS2008.  Surely there are some convenient macros that replace the soap_handler and soap_method attributes of VS2003/2005; something like DECLARE_SOAP_METHOD(...) that allow writing SOAP Services without attributes. Right?? The documentation at <a href=\"http://msdn2.microsoft.com/en-us/library/d73hf29a(VS.80).aspx\" class=\"externalLink\">http://msdn2.microsoft.com/en-us/library/d73hf29a(VS.80).aspx<span class=\"externalLinkIcon\" style=\"font-family:Consolas, Courier New, Courier, Monospace;\"></span></a> does not mention any such macros. Where is ATL Server documentation now that it is not part of VS2008?  <br /><br /><br /><br />",
+    "PostedDate": "2008-02-13T06:58:19.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "75195",
+    "ThreadId": "22054",
+    "Html": "\r\nI was able to build a couple of ATLServer projects successfully.  It was a little painful but ultimately I succeeded.  I blogged my experiences here:  <br />(http://blogs.msdn.com/jpsanders/archive/2008/01/17/building-with-atlserver-based-soap-project-with-visual-studio-2008.aspx)<br /><br />Alternatively, use the Managed classes and wizards in Visual Studio 2008 to access Web Services.  You may use COM Interop to use this managed code inside your unmanaged C++ code.  COM Interop is discussed here: http://msdn2.microsoft.com/en-us/library/zsfww439.aspx<br />",
+    "PostedDate": "2008-02-20T05:04:59.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "75246",
+    "ThreadId": "22054",
+    "Html": "\r\njpsanders, <br />Thanks for your reply. Unfortunately, this is the \"solution\" I already found as indicated in my original post. I can get it to build in VS2008, that was not the problem. The problem is that this solution is not workable. <br /><br />When you replace the attributes with the code that they inject, you get lots of unmaintainable machine generated spaghetti code defining the SOAP map, data types, the interface, etc (over 13,000 lines in my case.)  Look at this generated code for a non-trivial web service and imagine trying to add new SOAP data types (e.g., structs and enums) and/or methods to your interface, or modifying an existing data type or method. Imagine trying to write a brand new SOAP web service in C++ with ATLServer. It's theoretically possible, but certainly not practical.<br /><br />Also, sure, I could use managed code with or without interop to access a webservice. But I am talking about implementing a web service, not accessing one. Sure, I could expend valuable time and effort rewriting the entire web service in managed code, but that is not my first choice either.  <br /><br />My conclusion is that VS2008+ATLServer no longer support native C++ web services and I will not be upgrading to VS2008 at this time.  Perhaps someone will add some kind of support for this to ATLServer in the future. But it is unfortunate that MS did not do anything to preserve backward compatibility in this area. <br /><br /><br /><br />",
+    "PostedDate": "2008-02-20T07:49:45.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "78190",
+    "ThreadId": "22054",
+    "Html": "\r\nI hope also that a solution for \"ATL Server attributes\" for VS2008 will be found by someone  in a near future (Microsoft ?) ! The /FX option produce unreadable code !<br /><br />We have a very large project (over 2000 sources files.) with more than 30 web service functions and very complex data structure being used by these functions.<br /><br />So, in the mean time, we isolated attributes reference in only two files (a .cpp an a .h)  These two files are compiled with the /FX option with VS 2005, and the mrg files produces are used instead in our VS2008 project.<br /><br />Since the definition of web services does not change often, we will not have to recompile with VS2005 too often.<br />",
+    "PostedDate": "2008-03-04T13:32:46.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

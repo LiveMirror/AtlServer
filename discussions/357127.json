@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "840916",
+    "ThreadId": "357127",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>We have ATL Server implementation for our web services and we are seeing some memory leak and IISDiag make us point to the CWin32Heap::Free function. Within the services we have used ATL Server Mem Manager to allocate memory for the&nbsp;web service params&nbsp;which\r\n needs to be returned to the client. (e.g: &#65279;&#65279;&#65279;GetMemMgr()-&gt;Allocate(size) ). Now the question is can be used for local variables used within the context of web service implementation?. Also the freeing of this memory shall happen automatically?</p>\r\n<p>Any help in this regard is appreciated.</p>\r\n<p>Thanks in Advance,</p>\r\n<p>Sujith</p>\r\n",
+    "PostedDate": "2012-05-25T06:23:51.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "57260",
+    "ThreadId": "17551",
+    "Html": "\r\nHi<br />I have some problems to work with the ATLPerf under Vista. I have used the PerformanceScribble example from MS <a href=\"http://msdn2.microsoft.com/en-us/library/z1xc8ye3(VS.80).aspx\" class=\"externalLink\">http://msdn2.microsoft.com/en-us/library/z1xc8ye3(VS.80).aspx<span class=\"externalLinkIcon\" style=\"font-family:Consolas, Courier New, Courier, Monospace;\"></span></a><br /><br />First problem the Exe can only connect to the Permon.dll with admin rights, because in the atlperf.ini at line 209 there is used the function MapSharedMem. This function returns with Access denied. <br />This function use the CreateFileMapping in session 1. Described in this article <br /><a href=\"http://msdn2.microsoft.com/en-us/library/aa382954.aspx\" class=\"externalLink\">http://msdn2.microsoft.com/en-us/library/aa382954.aspx<span class=\"externalLinkIcon\" style=\"font-family:Consolas, Courier New, Courier, Monospace;\"></span></a> this does not work.<br /><br /><br />Second Problem, there must be a registration Problem of PerfMon.dll, because the \"ScribbleMouse\" entry does not exist in the performance monitor with vista.<br />After debugging the registration process, i have found in atlperf.inl line 1450, that the value for wPrimaryLanguage is 7. but in my registry there is only a path for 009 ?!?<br /><br />is there a workaround?<br /><br />thx Gerhard<br />",
+    "PostedDate": "2007-11-08T05:23:00.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

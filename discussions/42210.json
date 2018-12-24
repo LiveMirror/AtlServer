@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "140239",
+    "ThreadId": "42210",
+    "Html": "If i'm not wrong, there is not any project template for VS2008 for creating new ATL Web Service/Server project. It's highly needed and is one of main requirment of future ATL developers.<br>\r\nSo, please think about that. without this feature enterprises and software designers will move to .NET and managed coding .. for me it is sad.<br>\r\n<br>\r\nWell, i have also another question. i've opened one of my old ATL Webservice projects in VS2008 and i got below errors:<br>\r\n<br>\r\nerror C2337: 'request_handler' : attribute not found<br>\r\nerror C2337: 'soap_handler' : attribute not found<br>\r\nfatal error C1903: unable to recover from previous error(s); stopping compilation<br>\r\n<br>\r\nAfter googling the web i found out that i should use /FX, but i got the same errors. please help me in this issue.<br>\r\n<br>\r\nRegards,\r\n",
+    "PostedDate": "2008-12-13T04:07:12.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "142235",
+    "ThreadId": "42210",
+    "Html": "You actually need to use project templates from previous versions of visual studio. Then compile them with the older version's compiler, as well as the older versions of atl server (include files). When compiled with the /FX switch, the results can manually be copied and pasted into your newer versions' project. Then you just need to verify that all the datatypes are the same. They are different between each release of atl server. It can be done...<br>\r\n",
+    "PostedDate": "2008-12-21T15:18:28.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "145810",
+    "ThreadId": "42210",
+    "Html": "This walkthrough may help:<br>\r\n<a href=\"http://blogs.msdn.com/jpsanders/archive/2008/01/17/building-with-atlserver-based-soap-project-with-visual-studio-2008.aspx\">http://blogs.msdn.com/jpsanders/archive/2008/01/17/building-with-atlserver-based-soap-project-with-visual-studio-2008.aspx</a><br>\r\n",
+    "PostedDate": "2009-01-09T13:36:13.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "618532",
+    "ThreadId": "42210",
+    "Html": "<p>Hello jpsanders</p>\n<p>Its really a nice post!.am trying the same thing but all in vain.. :(</p>\n<p>I just followed the walk through , but still I get those errors,</p>\n<p><span style=\"font-size: xx-small;\"></span>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>and am not using&nbsp;&nbsp;Orcas compiler..</p>\n<p>I just have a ATL server project which is also a web service. which was built in vs 2005. Now I need to build the same project in VC9&nbsp;VS2008 . I followed the walk through.</p>\n<p>Got the .mrg.h and .mrg.cpp when compiled in Vs2005 with /Fx option. After I copied the code from the generated mrgs and replaced the code with the corresponding cpp and corresponding header,. When I rebuilrd it in Vs2008, am getting the above errors..</p>\n<p>Could you please help me?</p>\n<p>Thanks</p>\n<p>&nbsp;</p>\n</p>\n<p>1&gt;qig_deilmhprjr212\\catplmimplipd\\data.d\\IPDWebService_inj.h(13) : warning C4684: 'no_injected_text' : WARNING!! attribute may cause invalid code gneration: use with caution</p>\n<p>&nbsp;</p>\n<p>1&gt;NOTE: This merged source file should be visually inspected for correctness.</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>1&gt;qig_deilmhprjr212\\catplmimplipd\\data.d\\IPDWebService_inj.h(318) : error C2337: 'request_handler' : attribute not found</p>\n<p>1&gt;qig_deilmhprjr212\\catplmimplipd\\data.d\\IPDWebService_inj.h(318) : error C2337: 'soap_handler' : attribute not found</p>\n<p>1&gt;qig_deilmhprjr212\\catplmimplipd\\data.d\\IPDWebService_inj.h(318) : fatal error C1903: unable to recover from previous error(s); stopping compilation</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-05-26T01:44:42.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

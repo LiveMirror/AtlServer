@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "25575",
+    "ThreadId": "7827",
+    "Html": "\r\nIs there any chance we could get the VS2003 version of the code for sproxy.exe? There were some subtle changes between 2003 and 2005 for the C++ stub generation and being able to compare the two sources would be very informative...<br /><br />Gordon.<br />",
+    "PostedDate": "2007-03-05T05:23:31.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "25679",
+    "ThreadId": "7827",
+    "Html": "\r\nNo, it is not possible to get VS2003 version of sproxy.exe. What is the change you are interested in?<br /><br />Nikola<br />",
+    "PostedDate": "2007-03-05T18:02:34.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "26018",
+    "ThreadId": "7827",
+    "Html": "\r\nThere were some changes made to the way C++ stub were generated, in particular the way nested arrays and array of arrays were handled - in my situation I never could get the 2005 way to work 100% and had to fall back to the old sproxy.exe to generate my stubs.<br /><br />This may have been issues with the way I used the stubs, but I never investigated fully.<br />",
+    "PostedDate": "2007-03-08T00:25:32.407-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "26072",
+    "ThreadId": "7827",
+    "Html": "\r\nThere is not a simple way to figure out which of all VS2005 checks in may caused this regression. If you have a repro case of the issue (WSDL, generated stub, etc), try debugging it with version of sproxy you may download from here. Also you may open an issue with a repro case on the issue tracker tab. Someone in community may find a solution to the problem.<br />",
+    "PostedDate": "2007-03-08T10:32:58.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

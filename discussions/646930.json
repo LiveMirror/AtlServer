@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1450726",
+    "ThreadId": "646930",
+    "Html": "HI,<br />\ncan I use atlserver to upload files and do http request in a COM STA object without freezing the app ? my COM object is a outlook addin made with ATL.<br />\n shall I use win32 threads to do my requests/responses with atlserver?<br />\nI want to do http requests (uploads of files too) without freezing the app...<br />\nI use visual studio 2013 and ATL.<br />\nor instead of atlserver shall I use win32 winhttp ?<br />\n<br />\nbests regards<br />\n",
+    "PostedDate": "2015-11-03T03:42:46.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In the atlsmtpconnection.h file, the global variable declaration \"__declspec(selectany) CSMTPWSAStartup _g_smtp_init;\" calls \"WSAStartup(ATLSMTP_WSA_VERSION, &wsadata)\" in its constructor (see init() method).\nThis violates the rule that we may not call imported functions other than those located in Kernel32.dll (see \"DllMain Restrictions\" section at http://msdn.microsoft.com/en-us/library/aa290048%28VS.71%29.aspx).\n \nPossible solutions (IMHO):\n1) remove the init() call from the constructor of CSMTPWSAStartup\n2) wrap the _g_smtp_init object in a songleton\n \nNote:\nBecause of this issue, we had a crash when the DLLS were loaded (DllMain) -> hard to diagnose & debug. DLL Delay Load (in Visual Studio) helped, but it isn't a \"real\" solution...",
+    "LastUpdatedDate": "2013-02-14T12:57:05.61-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2010-05-03T04:59:23.69-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "DllMain rule violation in _g_smtp_init's constructor",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 12923
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

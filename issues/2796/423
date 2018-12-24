@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Campiglia (OCE PRINT LOGIC TECHNOLOGIES) -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.echoarraytest.com" targetNamespace="http://ws.echoarraytest.com">
+	<wsdl:types>
+		<xs:schema xmlns:tns="http://ws.echoarraytest.com" targetNamespace="http://ws.echoarraytest.com" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="ArrayOfInt">
+				<xs:sequence>
+					<xs:element name="item" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="EchoArray">
+				<xs:sequence>
+					<xs:element name="arrayIn" type="tns:ArrayOfInt"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="EchoArrayResponse">
+				<xs:sequence>
+					<xs:element name="arrayOut" type="tns:ArrayOfInt"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="echoArray" type="tns:EchoArray"/>
+			<xs:element name="echoArrayResponse" type="tns:EchoArrayResponse"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="echoArray">
+		<wsdl:part name="parameter" element="tns:echoArray"/>
+	</wsdl:message>
+	<wsdl:message name="echoArrayResponse">
+		<wsdl:part name="parameter" element="tns:echoArrayResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="EchoArrayTestPortType">
+		<wsdl:operation name="echoArray">
+			<wsdl:input message="tns:echoArray"/>
+			<wsdl:output message="tns:echoArrayResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="EchoArrayTestBinding" type="tns:EchoArrayTestPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="echoArray">
+			<soap:operation soapAction="urn:tns:echoArray"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EchoArrayTestService">
+		<wsdl:port name="EchoArrayTestPort" binding="tns:EchoArrayTestBinding">
+			<soap:address location="http://134.188.138.172:8080/jaxws-EchoArrayTest/echoarraytest"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

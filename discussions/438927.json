@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1024773",
+    "ThreadId": "438927",
+    "Html": "After following a lot of different tutorials on building and configuring the sproxy addition to VS2008 I finally got everything up and running.\r<br />\n<br />\nI now sit with the above SDL0000 error when trying to generate a header file to include in my project. I am not sure why this error was generated so I went through the source code and the error is linked to the sproxy.cpp file when evaluating the arguments. I have tried various different combinations of arguments to get my header file generated without any luck?\r<br />\n<br />\nIf anyone has encountered the same error or know of a possible solution please assist?<br />\n",
+    "PostedDate": "2013-04-03T04:49:26.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024817",
+    "ThreadId": "438927",
+    "Html": "Hi.\r<br />\nI've just compiled sproxy in VS2012 ant it's working fine.\r<br />\nI tested with one server from <a href=\"http://www.webservicex.net/ws/default.aspx\" rel=\"nofollow\">http://www.webservicex.net/ws/default.aspx</a> that shows the global weather forecast: <a href=\"http://www.webservicex.net/globalweather.asmx?WSDL\" rel=\"nofollow\">http://www.webservicex.net/globalweather.asmx?WSDL</a>\r<br />\n<br />\nI managed to create the header file with the following command:<br />\n<blockquote>\n.\\sproxy.exe /wsdl <a href=\"http://www.webservicex.net/globalweather.asmx?WSDL\" rel=\"nofollow\">http://www.webservicex.net/globalweather.asmx?WSDL</a> /out:weather.h<br />\n</blockquote>\nwhere &quot;weather.h&quot; is my output file.\r<br />\n<br />\nWhat command are you using to try to create the header file?\r<br />\n<br />\nMarcos<br />\n",
+    "PostedDate": "2013-04-03T05:59:27.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1024822",
+    "ThreadId": "438927",
+    "Html": "Hi Marcos,\r<br />\n<br />\nThanks for the reply, I have tried using the same command that you used above and still I get the same error. Even when trying to build the header file using the weather web service I still get the same error.\r<br />\n<br />\nI am not sure if this is linked to my OS or possibly a missing reference somewhere? I am using Windows 7 64bit.\r<br />\n<br />\nWill debug the sproxy source in VS and see if I can find more details...\r<br />\n<br />\nThanks again...<br />\n",
+    "PostedDate": "2013-04-03T06:14:10.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

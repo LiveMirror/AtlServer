@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "920945",
+    "ThreadId": "397796",
+    "Html": "\r\n<p>This seems to be an issue:</p>\r\n<p>&nbsp;</p>\r\n<p><a href=\"http://social.msdn.microsoft.com/Forums/en-US/vcmfcatl/thread/4763bc2d-0e86-45e9-bfe4-ddaa735e5ad5\">http://social.msdn.microsoft.com/Forums/en-US/vcmfcatl/thread/4763bc2d-0e86-45e9-bfe4-ddaa735e5ad5</a></p>\r\n",
+    "PostedDate": "2012-10-02T16:53:22.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "949722",
+    "ThreadId": "397796",
+    "Html": "\r\n<p>I'm using VS2012 and ran into the same issue.&nbsp; If you compare atlbase.h to an eariler version, such as VS2005, you'll see that these sections were changed&nbsp;from &quot;read, shared&quot; to &quot;read&quot;.</p>\r\n<p>In the ATLServer source you'll see the same sections in atlisapi.h and atlpref.h.&nbsp; I changed them to the following</p>\r\n<p>FROM:<br>\r\n#pragma section(&quot;ATLP$A&quot;, read, shared)<br>\r\n#pragma section(&quot;ATLP$Z&quot;, read, shared)<br>\r\n#pragma section(&quot;ATLP$C&quot;, read, shared)</p>\r\n<p>TO:<br>\r\n#pragma section(&quot;ATLP$A&quot;, read)<br>\r\n#pragma section(&quot;ATLP$Z&quot;, read)<br>\r\n#pragma section(&quot;ATLP$C&quot;, read)</p>\r\n<p>This eliminated the compiler warning and there seems to be no&nbsp;unwanted side-effects.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-30T14:28:21.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1494228",
+    "ThreadId": "397796",
+    "Html": "If you apply this change don't forget to re-build. Otherwise your linker will emit a warning that it found two sections with different attributes.<br />\n",
+    "PostedDate": "2017-03-17T22:26:34.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

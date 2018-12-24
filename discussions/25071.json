@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "84117",
+    "ThreadId": "25071",
+    "Html": "\r\nThe ATL Server source files have not been updated for a year.<br />I doubt this project is still working.<br />Should I start to think rewriting the vast amounts of source codes I've written to make use of ASP.NET technology? <br />",
+    "PostedDate": "2008-03-31T23:27:17.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "167919",
+    "ThreadId": "25071",
+    "Html": "This looks pretty inactive.&nbsp; Just because it's not being further developed, I suppose if it continues to work, we can continue to use it. <br>\r\n<br>\r\nIt just seems a bit odd to me that Microsoft would spin it off because they feel that &quot;the community&quot; could take it further than they can with their teams being committed to so many other things.&nbsp;&nbsp; Then we see it just stall.&nbsp; <br>\r\n<br>\r\nI guess Microsoft miscalculated the enthusiasm of the community to make changes to take ATL forward.<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-03-13T14:06:40.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "168804",
+    "ThreadId": "25071",
+    "Html": "<div>As a C++ developer, I would love to use ATL Server instead of ASP.NET but I am a bit afraid to do so, as the last version of this product was released almost two years ago and there might be some securities issues identified and still not patched... </div><div><br></div><div>I think there is still a huge number of C++ developers on the Windows platform, and these developers deserve a native framework to develop web applications. Microsoft failed to maintain this product but they released it on CodePlex. How could we explain that this great project has not evolved for the last two years? License-related issue? Lack of visibility around the next development steps?</div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+    "PostedDate": "2009-03-16T17:20:41.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "175443",
+    "ThreadId": "25071",
+    "Html": "Don't think you need to worry. ATL Server is very thin and it is easy to fix/add functionality on your own. ASP.NET is a totally different ball game. Much more that is done that the developer hasn't any control over. <br>\r\n",
+    "PostedDate": "2009-04-03T13:17:18.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "441755",
+    "ThreadId": "25071",
+    "Html": "<p>Agree with gosh</p>",
+    "PostedDate": "2010-05-11T18:25:10.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

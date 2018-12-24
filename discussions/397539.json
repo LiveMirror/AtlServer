@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "920035",
+    "ThreadId": "397539",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Hello,</p>\r\n<p>VS 2012 says it cannot find the &quot;atlrx.h&quot; include file.</p>\r\n<p>I simply added the include directory to an existing property sheet.</p>\r\n<p>Yet, VS still can't find the file.</p>\r\n<p>Any suggestions?</p>\r\n<p>williamj</p>\r\n",
+    "PostedDate": "2012-10-01T07:19:47.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930592",
+    "ThreadId": "397539",
+    "Html": "<p>&nbsp;</p>\r\n<p>My solution was to create a simple test app that included a static ATL library.</p>\r\n<p>Then I used the property sheet from the simple app in the original project.</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2012-10-22T10:12:49.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

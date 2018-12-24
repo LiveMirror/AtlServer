@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "698044",
+    "ThreadId": "279427",
+    "Html": "\r\n<p>I followed jpsander's <a href=\"http://blogs.msdn.com/b/jpsanders/archive/2008/01/17/building-with-atlserver-based-soap-project-with-visual-studio-2008.aspx\">\r\nguide </a>to getting ATL Server projects running in Visual Studio 2008 and I can compile/link my project just fine using that technique in Visual Studio 2010. &nbsp;However, I am unable to connect to the service built using ATL Server once I deploy it locally\r\n in IIS. &nbsp;If I try to hit the Handler for the WSDL for the service (localhost/[SERVICE]/[SERVICE_DLL]?Handler=GenSERVICEWSDL), I get this error in Chrome: &nbsp;-2147467259 (0x80004005). &nbsp;IE and IIS logging tell me that it is a 500 error but that's\r\n all the detail I can get. &nbsp;The only changes I made were to get it to compile in VS2010 (a combination of jpsander's guide and various compiler issues, nothing that should have affected functionality).</p>\r\n<p>Has anyone else encountered this? &nbsp;Does anyone know any way of getting more detail on what exactly is going wrong here? &nbsp;Do I need to somehow package the ATL Server code with the project? This is my first foray into ATL Server stuff and as you\r\n can tell, it isn't going as well as I would like :)</p>\r\n<p>On a quasi-related note, Intellisense will give me errors related to &quot;#injected_line&quot; being an unrecognized preprocessor directive, but doesn't prevent compilation. &nbsp;Is that expected?</p>\r\n",
+    "PostedDate": "2011-11-14T12:12:15.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698439",
+    "ThreadId": "279427",
+    "Html": "<p>So it turns out I am an idiot (or at least I act as one for my job). &nbsp;I had been messing around with this upgraded project and had commented out the contents of the [SERVICE].def file. &nbsp;As soon as I replaced the contents of that .def file, everything worked again. &nbsp;Good thing it only took me 10 hours to figure that out...</p>",
+    "PostedDate": "2011-11-15T07:26:06.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

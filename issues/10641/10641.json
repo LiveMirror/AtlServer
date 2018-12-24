@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "At several locations in atlper.inl an object is passed while a string is required.\n \nFor example:\n \nstrMutexName.Format(_T(\"Global\\\\ATLPERF_%s_LOCK\"), strAppName); (line 1873)\n \nThis should be:\n \nstrMutexName.Format(_T(\"Global\\\\ATLPERF_%s_LOCK\"), strAppName.GetString());",
+    "LastUpdatedDate": "2013-02-14T12:57:06.05-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2009-09-17T04:29:28.34-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "atlperf.inl generates PreFast static analyzer warnings: C6284 objects passed, when string is required.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10641
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

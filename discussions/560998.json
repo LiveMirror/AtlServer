@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1289448",
+    "ThreadId": "560998",
+    "Html": "Hi there,<br />\nJust thought I would give you some tips on my experience with vcdeploy.exe<br />\n<ul>\n<li>IIS6 management compatibility tools installed in Windows Features</li>\n<li>Compiled vcdeploy with VS2008 sp1</li>\n<li>all of the SRC elements in your deployment .xml file are capitalized</li>\n<li>Deploying atl server apps to IIS7.5 usually means you need to create a 32 bit app pool. This can be accomplished through the IIS gui or by using appcmd. If you are using legacy libraries (such as ATL71.dll) make sure they are in the syswow64 folder.</li>\n<li>The &lt;APPISOLATION&gt;2&lt;/APPISOLATION&gt; node in the deployment .xml file should be like this (isolated)</li>\n<li>vcdeploy automatically creates the handlers for you in IIS7.5. They have some obscure name like AboMapperCustom-12xxxx</li>\n<li>If you plan on hosting more than 1 atl server app per site, you will need to delete the second AboMapperCustom-1xxx handler (which vcdeploy automatically creates) and manually create an isapi handler using the gui.</li>\n<li>Don't forget to edit the script map so that you give your Isapi execute permissions.</li>\n<li>Don't forget to map your application to the correct application pool in the basic settings section of the IIS7.5 gui</li>\n<li>Also don't forget to set the Isapi and CGI Restrictions to Allowed for each Isapi</li>\n<li>using icacls, set read and execute permissions on your dll's for the app pool</li>\n</ul>\n",
+    "PostedDate": "2014-08-12T13:33:28.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

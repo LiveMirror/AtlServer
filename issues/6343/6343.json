@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "There currently exists a thread safety issue in the templated CMemoryCache class in atlcache.h.  This issue has been present in the cache going back to VS2003 (if not earlier).  The issue was reported in Microsoft Connect for both VS2005 and VS2003 but was never fixed by Microsoft.",
+    "LastUpdatedDate": "2013-02-14T12:57:07.207-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2008-06-11T12:55:03.907-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Thread safety issue in ATL caches (atlcache.h)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6343
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "ARG... Hit return 2x and it submitted the issue ticket before I was finished.\r\n\r\nThe problem with the CMemoryCache class is that the AddEntry() method does not properly acquire a lock on the cache for the entire duration of the operation and can therefore result in corruption of the cache and runtime exceptions when cache culling is used.  The solution is to add a scoped lock at the start of the method.\r\n\r\nAt the start of the method replace:\r\n\r\n\t\t\tHRESULT hr;\r\n\r\nwith:\r\n\r\n\t\t\t// Gain a lock for the entire duration of the operation.\r\n\t\t\tCComCritSecLock<SyncClass> lock(m_syncObj, false);\r\n\t\t\tHRESULT hr = lock.Lock();\r\n\r\n\t\t\tif (FAILED(hr))\r\n\t\t\t{\r\n\t\t\t\treturn hr;\r\n\t\t\t}\r\n\r\nThe lock prevents other operations (namely culling) from modifying the cache data between other lower level locks acquired in functions called by AddEntry().",
+      "PostedDate": "2008-06-11T13:03:02.967-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:57:07.207-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

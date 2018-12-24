@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "76304",
+    "ThreadId": "22823",
+    "Html": "\r\nHello,<br /><br />I want to generate proxy class for Exchange Server 2007 SP1 web services. The error I get from sproxy.exe is: <br /><br />SDL1029: no web service methods to generate<br /><br />If I add the web service method to the downloaded Services.wsdl file, I receive another error:<br /><br />SDL1000: Unknown error<br /><br />I have tried to debug sproxy.exe but I don't think I will find the cause very soon :-)<br />Could someone help me? I can send the Services.wsdl file, the messages.xsd and the types.xsd files for Exchange Server.<br /><br /><br />Thank you.<br />",
+    "PostedDate": "2008-02-25T11:52:35.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

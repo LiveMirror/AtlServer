@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The pref objects don't work under Vista, there seem to be two problems with it:",
+    "LastUpdatedDate": "2013-04-10T18:09:14.537-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2008-07-08T07:08:53.623-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Make ATLPref work under Vista",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6815
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "1. The \"Configuration Flags\" value that has been added to Vista to protect the Counter value.\r\n2. rkLang.QueryMultiStringValue(..) returns \"The data is invalid\", 0x8007000d. (at least when compiling under ANSI I haven't tested it under Unicode)\r\n",
+      "PostedDate": "2008-07-08T07:13:22.59-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I had encountered supposedly the same issue on Windows Server 2008 R2. I believe that this is the result of a problem inside RegQueryValueEx, by including uninitialized data into the reported byte array. As with other uninitialized data, reproducing the problem is quite random.\r\nI have submitted the issue via Microsoft Connect (https://connect.microsoft.com/WindowsServerFeedback/feedback/details/633595/a-possible-problem-in-winapi-function-regqueryvalueex-prevents-perf-counter-registration#)\r\n\r\nA simple workaround may be coded into ATL Server, <atlperf.inl>:\r\nMetods CPerfMon::_AppendRegStrings and CPerfMon::_RemoveRegStrings should zero-fill the buffer inside CStrBuf passed as a parameter to the second calls to rkLang.QueryMultiStringValue.\r\n",
+      "PostedDate": "2010-12-28T07:14:04.797-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:57:06.903-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "There is a duplicate issue here: [Perfomance Counter Support in Vista](https://atlserver.codeplex.com/workitem/9279)",
+      "PostedDate": "2013-04-10T18:09:14.537-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

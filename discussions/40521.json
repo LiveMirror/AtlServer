@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "134420",
+    "ThreadId": "40521",
+    "Html": "Hi,<br>\r\n<br>\r\nI have 2 suggestions on the CAtlRegExp template class.<br>\r\n<br>\r\n1. Change the label &quot;Error&quot; to some other label name. <br>\r\nThe label is referenced by the &quot;goto&quot; statement in CAtlRegExp::Match( ). It will conflict with &quot;ADODB::Error&quot; if you use CAtlRegExp and ADODB in the same project and result in compilation failure.<br>\r\n<br>\r\n2. Change  CAtlRegExp::Match( ) to a const function.<br>\r\nActually  CAtlRegExp::Match( ) never modify any member variable, so it should be defined as a const member function and no synchronization mechanism such as critical section or mutex is needed for Match( ) operation.<br>\r\nThis can be done easily by adding a const member function GetInstructionConst( ) as the following, and change all the GetInstruction( ) in Match( ) to GetInstructionConst( ).<br>\r\n<br>\r\n const INSTRUCTION &amp; GetInstructionConst(size_t nIndex) const throw() <br>\r\n {<br>\r\n        return m_Instructions[nIndex];<br>\r\n }<br>\r\n<br>\r\nThanks for your reading. \r\n",
+    "PostedDate": "2008-11-22T01:08:03.6-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

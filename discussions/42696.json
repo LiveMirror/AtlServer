@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "141878",
+    "ThreadId": "42696",
+    "Html": "I try to use sproxy utility to generate unmanaged vc++ client to consume web service, and got lots of errors when I used VS-2003/2005's sproxy. VS-2008 does not provide sproxy utility, so I went codeplex website to download ATLServer project and compiled sproxy. No error for compiling, but got SDL1005 error:<br>\r\nSproxy <a href=\"http://www.multispeak.org/interface/30j/3_LM_SCADA.asmx?wsdl\">http://www.multispeak.org/interface/30j/3_LM_SCADA.asmx?wsdl</a><br>\r\n<br>\r\nunrecognized tag, with<br>\r\n[<br>\r\n    namespace = <a href=\"http://schemas.xmlsoap.org/wsdl/\">http://schemas.xmlsoap.org/wsdl/</a><br>\r\n    tag = &quot;definitions&quot;<br>\r\n]<br>\r\n<br>\r\nIt's no problem if I use java solution or .Net solution, but lots of problems for native c++, I also try to use wsdl.exe to generate c# assmbly dll, and wrap it to COM, but TLBEXP also have lots of errors. \r\n",
+    "PostedDate": "2008-12-19T08:24:40.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "802163",
+    "ThreadId": "42696",
+    "Html": "<p>I know this is a <em>really</em> old topic, but in the interests of providing an answer to anyone else who stumbles across this question via Google, here's the fix that I've found:</p>\n<p>Make sure that when you call sproxy.exe at the command line, you include the /wsdl parameter (sproxy.exe /wsdl [/output:filename] service_location). The documentation for the sproxy.exe utility is <a href=\"http://msdn.microsoft.com/en-us/library/ztta389h(VS.80).aspx\">here on MSDN</a>, if you need it.</p>",
+    "PostedDate": "2012-02-27T11:11:22.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1034847",
+    "ThreadId": "42696",
+    "Html": "gbuddell, thanks a lot for your reply!<br />\n",
+    "PostedDate": "2013-04-23T16:35:55.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

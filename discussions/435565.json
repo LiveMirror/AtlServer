@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1011131",
+    "ThreadId": "435565",
+    "Html": "VS2012 does not support ATL, how to use it in VS2012?<br />\n",
+    "PostedDate": "2013-03-06T04:35:48.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1051033",
+    "ThreadId": "435565",
+    "Html": "<strong>digger_semi wrote:</strong><br />\n<blockquote>\nVS2012 does not support ATL, how to use it in VS2012?<br />\n</blockquote>\nYou found the right place. My suggestion now: Download the source and compile it.<br />\n",
+    "PostedDate": "2013-05-31T00:08:33.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2007-04-25T14:49:30.66-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "SPROXY generates an instance of the header type for each method that uses that header, even if all headers are of the same type. (The C# proxy generator just generates one, called \"<typename>Value\".) The real problem though, is that they're named \"_<typename>[counter]\", so that it's very difficult to tell which instance corresponds to which method. Also, since the list of headers is maintained in a hash map keyed by a pointer, the correspondence is not stable (it's essentially random), so client code will likely be subtly broken when the header is regenerated due to mismatched headers.\nGiven my FooWebService with 7 methods that have a header of type FooHeader, SPROXY generates the following:\n \ntemplate <typename TClient = CSoapSocketClientT<> >\nclass CFooWebServiceT : \n public TClient, \n public CSoapRootHandler\n{\npublic:\n //\n // SOAP headers\n //\n \n FooHeader _FooHeader1;\n FooHeader _FooHeader2;\n FooHeader _FooHeader4;\n FooHeader _FooHeader;\n FooHeader _FooHeader3;\n FooHeader _FooHeader0;\n FooHeader _FooHeader5;\n // ...\n};\nIf SPROXY were to behave like the C# proxy generator, it would generate the following, where FooHeaderValue is shared by all methods:\ntemplate <typename TClient = CSoapSocketClientT<> >\nclass CFooWebServiceT : \n public TClient, \n public CSoapRootHandler\n{\npublic:\n //\n // SOAP headers\n //\n \n FooHeader FooHeaderValue;\n // ...\n};",
+    "LastUpdatedDate": "2013-05-16T03:04:23.983-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2007-04-25T14:49:28.753-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SPROXY generated variables for SOAP headers have unpredictable names",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 1852
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

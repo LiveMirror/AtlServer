@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The performance counter support in Vista is broken.",
+    "LastUpdatedDate": "2013-04-10T18:08:54.62-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "AtlServer",
+    "ReportedDate": "2009-02-18T21:01:08.51-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Perfomance Counter Support in Vista",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 9279
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "See this related issue: [Make ATLPref work under Vista](https://atlserver.codeplex.com/workitem/6815)",
+      "PostedDate": "2013-04-10T18:08:54.62-07:00",
+      "Id": -2147483648
+    }
+  ]
+}
